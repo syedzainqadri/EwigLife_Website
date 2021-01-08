@@ -10,21 +10,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  VideoPlayerController _controller;
-
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.network(
-      'http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4',
-    )..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff03013c),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -77,7 +66,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, '/Contact Us');
+                    Navigator.pushNamed(context, '/Development');
                   },
                 ),
               ),
@@ -110,40 +99,60 @@ class _HomeState extends State<Home> {
                   Row(
                     children: [
                       Expanded(
-                        child: _controller.value.initialized
-                            ? AspectRatio(
-                                aspectRatio: _controller.value.aspectRatio,
-                                child: VideoPlayer(_controller),
-                              )
-                            : Container(),
+                        child: Image.asset('assets/image/man.gif'),
                       ),
                       Expanded(
-                        child: Image.network(
-                            'https://www.freecodecamp.org/news/content/images/2020/04/w-qjCHPZbeXCQ-unsplash.jpg'),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                child: Text(
+                                  ' Welcome',
+                                  style: kHone,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                child: Text(
+                                  ' To EwigLife',
+                                  style: kHone,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.pinkAccent,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Text(
+                              'EwigLife Cloud Technologies is Countinusly delivery Quality Trainings in the Fiels of Cloud Computing and Flutter Development since 2017',
+                              style: khthree,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
                   Row(
                     children: [
                       Expanded(
-                        child: Image.network(
-                            'https://www.freecodecamp.org/news/content/images/2020/04/w-qjCHPZbeXCQ-unsplash.jpg'),
-                      ),
-                      Expanded(
-                        child: Image.network(
-                            'https://www.freecodecamp.org/news/content/images/2020/04/w-qjCHPZbeXCQ-unsplash.jpg'),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Image.network(
-                            'https://www.freecodecamp.org/news/content/images/2020/04/w-qjCHPZbeXCQ-unsplash.jpg'),
-                      ),
-                      Expanded(
-                        child: Image.network(
-                            'https://www.freecodecamp.org/news/content/images/2020/04/w-qjCHPZbeXCQ-unsplash.jpg'),
+                        child: Container(
+                            color: Colors.white,
+                            child: Image.asset('assets/image/logo-black.png')),
                       ),
                     ],
                   ),

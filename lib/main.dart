@@ -1,5 +1,6 @@
 import 'package:ewiglife/Screens/ContactUs.dart';
 import 'package:flutter/material.dart';
+import 'Screens/Development.dart';
 import 'Screens/Home.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class EwigLife extends StatelessWidget {
       routes: {
         '/': (context) => Home(),
         '/Contact Us': (context) => ContactUs(),
+        '/Development': (context) => Development(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
